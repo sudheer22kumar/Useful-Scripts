@@ -12,7 +12,11 @@
 unless( @ARGV > 4 )
 {
     die " USAGE: <input>  <displacement interval(Angs)>  <number of displacements> <lines before cartesian coordinates> <size of starting monomer> <number of cores(optional)>\n";
-}
+}     #    Lines before cartesian coordinates is required if the input file does not start with the cartesian coordinates but something else like control options for example.
+      #    size of starting monomer is the number of atoms present in that group and have to be in sequence i.e. atoms from another monomer/group cannot be present in between the atoms of the starting monomer.
+     #     The script assumes that the input has only two monomers hence requires further modification if more than two are present.
+
+
 
 $input_opt = $ARGV[0];
 $disp_int = $ARGV[1];
